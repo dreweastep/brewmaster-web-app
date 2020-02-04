@@ -1,17 +1,37 @@
-import React, { Component } from 'react'
-import Meta from '../components/Meta'
+import { useEffect, useState } from 'react'
+import react from 'react'
+import MaterialTable from "material-table";
 
-export default class extends Component {
-  render() {
-    return (
-      <div>
-        <Meta />
+const columns = [
+  { title: "Type", field: "type" },
+  { title: "Brew Start Date", field: "brewStartDate" }
+];
 
-        <main>
-          <h1>next-starter <span>v1.0.0</span> 🚀</h1>
-          <h2>made with ❤️ by <a href="https://twitter.com/yuribrunetto" target="_blank">@yuribrunetto</a></h2>
-        </main>
-      </div>
-    )
-  }
+const data = [
+  { type: "Beer", brewStartDate: "2/4/20" },
+  { type: "Wine", brewStartDate: "2/5/20" },
+  { type: "Cider", brewStartDate: "2/6/20" },
+  { type: "Kombucha", brewStartDate: "2/7/20" },
+
+];
+function HomePage() {
+
+  const [filter, setFilter] = useState(false)
+  const [group, setGroup] = useState(false)
+
+  return (
+    <>
+      <MaterialTable
+        columns={columns}
+        data={data}
+        options={{
+          filtering: filter,
+          grouping: group
+        }}
+        title="Demo Title"
+      />
+    </>
+  );
 }
+
+export default HomePage;
