@@ -1,12 +1,4 @@
-import {
-  AppBar,
-  Button,
-  ButtonGroup,
-  IconButton,
-  Toolbar,
-  Typography,
-  Container
-} from "@material-ui/core";
+import { Menu, Container, Image, Icon, Button } from "semantic-ui-react";
 
 import Router, { useRouter } from "next/router";
 
@@ -20,29 +12,34 @@ Router.onRouteChangeError = () => NProgress.done();
 function Header() {
   const router = useRouter();
 
+  function setProgress() {
+    NProgress.inc(0.2);
+  }
+
+  function doneProgress() {
+    NProgress.done()
+  }
+
   function isActive(route) {
     return route === router.pathname;
   }
 
   return (
-    <AppBar color="secondary" position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu"></IconButton>
-        <Typography variant="h6">News</Typography>
-        <Container>
-          <ButtonGroup
-            color="primary"
-            variant="contained"
-            size="large"
-            aria-label="outlined primary button group"
-          >
-            <Button>Login</Button>
-            <Button>Create Brew</Button>
-            <Button>History</Button>
-          </ButtonGroup>
-        </Container>
-      </Toolbar>
-    </AppBar>
+    <div>
+      <Menu widths={3} centered="true" id="menu">
+        <Button.Group id="appbar">
+          <Button id="appbar" onClick={setProgress} inverted>
+            Home
+          </Button>
+          <Button id="appbar" onClick={doneProgress} inverted>
+            Brews
+          </Button>
+          <Button id="appbar" inverted>
+            Sensors
+          </Button>
+        </Button.Group>
+      </Menu>
+    </div>
   );
 }
 
