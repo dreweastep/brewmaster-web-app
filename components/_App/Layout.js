@@ -15,21 +15,11 @@ function Layout() {
           rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"
         />
-        <title>Shopping App</title>
+        <title>Brew Master</title>
       </Head>
       <Header />
-      <Container
-        fluid
-        style={{
-          width: '100%',
-          height: '100%',  
-          position: 'absolute',
-          display: 'inline-block',
-          opacity: 0.7,
-          backgroundImage: `url(${"images/hops.jpg"})`,
-          backgroundSize: 'cover'
-        }}
-      >
+      <Container fluid className="landing-image">
+        
       </Container>
     </>
   );

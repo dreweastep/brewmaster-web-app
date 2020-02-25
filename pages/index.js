@@ -1,27 +1,24 @@
+import BrewCardList from "../components/Index/BrewCardList"
+import axios from 'axios'
 import { useEffect, useState } from "react";
 import react from "react";
-import { Button, Icon } from "semantic-ui-react";
+import baseUrl from '../utils/baseUrl'
 
-const columns = [
-  { title: "Type", field: "type" },
-  { title: "Brew Start Date", field: "brewStartDate" }
-];
-
-const data = [
-  { type: "Beer", brewStartDate: "2/4/20" },
-  { type: "Wine", brewStartDate: "2/5/20" },
-  { type: "Cider", brewStartDate: "2/6/20" },
-  { type: "Kombucha", brewStartDate: "2/7/20" }
-];
-function HomePage() {
-  const [filter, setFilter] = useState(false);
-  const [group, setGroup] = useState(false);
-
+function Home({ brews }) {
   return (
     <>
-      
+      <BrewCardList brews={brews} />
     </>
   );
 }
 
-export default HomePage;
+Home.getInitialProps = async ctx => {
+
+  //fetch data on server
+  const url = `${baseUrl}/api/brews`;
+  const response = await axios.get(url);
+  //return response data as an object 
+  return {brews: response.data};
+}
+
+export default Home;

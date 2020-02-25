@@ -16,8 +16,24 @@ body {
   padding: 1.5em 2em;
 }
 
+#cardListContainer {
+  margin-top: 5%;
+  width: 60%;
+
+}
+
 /* Overrides default styled accordion styles (too much bottom padding) */
+
 .ui.styled.accordion .content {
   margin: 0;
   padding: 0.5em 1em 0.75em !important;
+}
+
+.ui.fluid.container.landing-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  background-image: url("images/hops.jpg") !important;
+  background-size: cover !important;
 }
