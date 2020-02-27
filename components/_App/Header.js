@@ -12,32 +12,36 @@ Router.onRouteChangeError = () => NProgress.done();
 function Header() {
   const router = useRouter();
 
-  function setProgress() {
-    NProgress.inc(0.2);
-  }
-
-  function doneProgress() {
-    NProgress.done()
-  }
-
-  function isActive(route) {
-    return route === router.pathname;
-  }
-
   return (
     <div>
-      <Menu widths={3} centered="true" id="menu">
-        <Button.Group id="appbar">
-          <Button id="appbar" onClick={setProgress} inverted>
-            Home
-          </Button>
-          <Button id="appbar" onClick={doneProgress} inverted>
-            Brews
-          </Button>
-          <Button id="appbar" inverted>
-            Sensors
-          </Button>
-        </Button.Group>
+      <Menu fluid widths={3} centered="true" id="menu" inverted>
+        <Container text>
+          <Link href="/">
+            <Menu.Item header>
+              <Image
+                size="mini"
+                src="/images/beer.jpg"
+                style={{ marginRight: '1em' }}
+              />
+              Brew Master
+          </Menu.Item>
+          </Link>
+          <Link href="/brews">
+            <Menu.Item header>
+              <Icon
+                name="beer"
+                size="large"
+              />
+              Brews
+          </Menu.Item>
+          </Link>
+          <Link href="/create">
+            <Menu.Item header>
+              <Icon name="thermometer empty" size="large" />
+              Sensors
+          </Menu.Item>
+          </Link>
+        </Container>
       </Menu>
     </div>
   );

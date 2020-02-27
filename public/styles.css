@@ -1,11 +1,12 @@
 :root {
-  --bodyBg: #f0f4f8;
+  --bodyBg: #1571cc;
   --menuBg: #000000;
   --progressBar: #4ee4c3;
 }
 
 body {
-  background: var(--bodyBg);
+  background-color: #777303 !important;
+  background-image: url("hexagons.svg") !important;
 }
 
 #menu {
@@ -17,9 +18,21 @@ body {
 }
 
 #cardListContainer {
-  margin-top: 5%;
+  margin-top: 3%;
   width: 60%;
+}
 
+#brewTable {
+  margin-top: 3%;
+  width: 60%;
+}
+
+#deleteBrewButton {
+  background-color: goldenrod;
+}
+
+#starWarsButton {
+  width: 15%;
 }
 
 /* Overrides default styled accordion styles (too much bottom padding) */
@@ -31,9 +44,11 @@ body {
 
 .ui.fluid.container.landing-image {
   width: 100%;
-  height: 100%;
+  height: 100%; 
   position: absolute;
   display: inline-block;
-  background-image: url("images/hops.jpg") !important;
-  background-size: cover !important;
+  /* background-image: url("images/hops.jpg") !important; */
+  /* background-size: cover !important; */ 
+  background-color: #777303;
+  background-image: url("hexagons.svg");
 }
