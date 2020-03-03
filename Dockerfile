@@ -10,6 +10,12 @@ RUN npm install
 # Copying source files
 COPY . .
 
+# Get Mongo Srv
+ARG MONGO_SRV
+
+# Pass Mongo Srv to container
+ENV MONGO_SRV=$MONGO_SRV
+
 # Building app
 RUN npm run build
 
