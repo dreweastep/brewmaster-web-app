@@ -9,7 +9,7 @@ function BrewCardList({ brews }) {
             color: 'teal',
             fluid: true,
             size: "small",
-            inverse: true
+            inverse: "true"
         }))
     }
     return (

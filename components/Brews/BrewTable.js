@@ -10,11 +10,10 @@ function BrewTable({ brews }) {
                         <TableCell>{brew.name}</TableCell>
                         <TableCell>{brew.type}</TableCell>
                         <TableCell>{brew.brewStartDate}</TableCell>
-                        <Button id="deleteBrewButton" style={{ marginRight: "1em" }}>Delete</Button>
-                        <Button icon="pencil"></Button>
-                        <input id="starWarsButton" type="image" src="images/yoda.jpg" />
-                        <input id="starWarsButton" type="image" src="images/porg.jpg" />
-
+                        <TableCell>
+                            <Button id="deleteBrewButton" style={{ marginRight: "1em" }}>Delete</Button>
+                            <Button icon="pencil"></Button>
+                        </TableCell>
                     </TableRow>
                 )
             })
@@ -24,12 +23,13 @@ function BrewTable({ brews }) {
     return (
         <>
             <Container id="brewTable">
-                <Table>
+                <Table celled padded >
                     <TableHeader>
                         <TableHeaderCell>Name</TableHeaderCell>
                         <TableHeaderCell>Type</TableHeaderCell>
                         <TableHeaderCell>Brew Start Date</TableHeaderCell>
                         {/* <TableHeaderCell>Brew End Date</TableHeaderCell> */}
+                        <TableHeaderCell />
                     </TableHeader>
                     <TableBody>
                         <MapBrewsToRows brews={brews} />

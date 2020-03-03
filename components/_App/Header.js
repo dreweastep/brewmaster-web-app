@@ -18,28 +18,30 @@ function Header() {
         <Container text>
           <Link href="/">
             <Menu.Item header>
-              <Image
-                size="mini"
-                src="/images/beer.jpg"
-                style={{ marginRight: '1em' }}
-              />
+              <p id="iconEmoji">🍺</p>
               Brew Master
-          </Menu.Item>
+            </Menu.Item>
           </Link>
           <Link href="/brews">
             <Menu.Item header>
-              <Icon
-                name="beer"
-                size="large"
-              />
+              <p id="iconEmoji">🍻</p>
               Brews
-          </Menu.Item>
+            </Menu.Item>
           </Link>
           <Link href="/create">
             <Menu.Item header>
               <Icon name="thermometer empty" size="large" />
               Sensors
-          </Menu.Item>
+            </Menu.Item>
+          </Link>
+          <Link href="/createBrew">
+            <Menu.Item header>
+              <Icon
+                name="add square"
+                size="large"
+              />
+              Create Brew
+            </Menu.Item>
           </Link>
         </Container>
       </Menu>
