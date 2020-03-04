@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <div>
-      <Menu fluid widths={3} centered="true" id="menu" inverted>
+      <Menu fluid widths={4} id="menu" inverted>
         <Container text>
           <Link href="/">
             <Menu.Item header>
@@ -30,16 +30,13 @@ function Header() {
           </Link>
           <Link href="/create">
             <Menu.Item header>
-              <Icon name="thermometer empty" size="large" />
-              Sensors
+              <p id="iconEmoji">🌡️</p>
+              Sensor
             </Menu.Item>
           </Link>
           <Link href="/createBrew">
             <Menu.Item header>
-              <Icon
-                name="add square"
-                size="large"
-              />
+              <p id="iconEmoji">➕</p>
               Create Brew
             </Menu.Item>
           </Link>

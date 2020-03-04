@@ -53,10 +53,6 @@ body {
   background-color: goldenrod;
 }
 
-#starWarsButton {
-  width: 15%;
-}
-
 /* Overrides default styled accordion styles (too much bottom padding) */
 
 .ui.styled.accordion.content {
