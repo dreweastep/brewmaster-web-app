@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 
-// import baseUrl from '../utils/baseUrl'
+import baseUrl from '../utils/baseUrl.js'
 import catchErrors from '../utils/catchErrors'
 
 import { useRouter } from "next/router";
@@ -95,7 +95,7 @@ function CreateBrew() {
 
       console.log(brew)
 
-      const url = `${window.location.href.replace('/createBrew', '')}/api/brew`;
+      const url = `${baseUrl}/api/brew`;
       const payload = brew;
       const response = await axios.post(url, payload)
 
