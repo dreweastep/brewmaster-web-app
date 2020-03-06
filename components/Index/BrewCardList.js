@@ -4,7 +4,7 @@ function BrewCardList({ brews }) {
     function mapBrewsToItems(brews) {
         return brews.map(brew => ({
             header: brew.name,
-            image: (brew.type == "beer") ? ("images/beer.jpg") : (brew.type == "wine") ? ("images/wine.jpg") : ("images/Cider.jpg"),
+            image: (brew.type == "beer") ? ("images/beer.jpg") : (brew.type == "wine") ? ("images/wine.jpg") : ("images/cider.jpg"),
             meta: `${brew.type}`,
             color: 'teal',
             fluid: true,
