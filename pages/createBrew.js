@@ -95,7 +95,7 @@ function CreateBrew() {
 
       console.log(brew)
 
-      const url = `${window.location.href.replace('/createBrew', '')}api/brew`;
+      const url = `${window.location.href.replace('/createBrew', '')}/api/brew`;
       const payload = brew;
       const response = await axios.post(url, payload)
 
