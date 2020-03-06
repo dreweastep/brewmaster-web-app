@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 
-import baseUrl from '../utils/baseUrl'
+// import baseUrl from '../utils/baseUrl'
 import catchErrors from '../utils/catchErrors'
 
 import { useRouter } from "next/router";

@@ -1,6 +1,6 @@
 import { Table, Container } from 'semantic-ui-react'
 import BrewTable from '../components/Brews/BrewTable'
-import baseUrl from '../utils/baseUrl'
+// import baseUrl from '../utils/baseUrl'
 import axios from 'axios'
 
 

@@ -1,7 +1,7 @@
 import BrewCardList from "../components/Index/BrewCardList"
 import axios from 'axios'
 import React from "react";
-import baseUrl from '../utils/baseUrl'
+// import baseUrl from '../utils/baseUrl'
 
 function Home({ brews }) {
   return (
