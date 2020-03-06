@@ -16,7 +16,7 @@ function Sensor({ temp }) {
 
 Sensor.getInitialProps = async ctx => {
   //fetch data on server
-  const url = `${window.location.href.replace('/sensor', '')}/api/temperature`;
+  const url = `${window.location.href.replace('/sensor', '')}api/temperature`;
   const response = await axios.get(url);
   //return response data as an object 
   return { temp: response.data };

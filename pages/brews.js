@@ -15,7 +15,7 @@ function Brews({ brews }) {
 
 Brews.getInitialProps = async ctx => {
     //fetch data on server
-    const url = `${window.location.href.replace('/brew', '')}/api/brews`;
+    const url = `${window.location.href.replace('/brews', '')}api/brews`;
     const response = await axios.get(url);
     //return response data as an object 
     return { brews: response.data };
