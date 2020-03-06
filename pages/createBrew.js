@@ -4,6 +4,8 @@ import React from 'react'
 import baseUrl from '../utils/baseUrl'
 import catchErrors from '../utils/catchErrors'
 
+import { useRouter } from "next/router";
+
 import { Container, Form, Button, Input, TextArea, Select, Message } from 'semantic-ui-react'
 import SemanticDatepicker from 'react-semantic-ui-datepickers';
 
@@ -41,6 +43,7 @@ const TYPE_OPTIONS = [
 ]
 
 function CreateBrew() {
+  const router = useRouter();
 
   const [brew, setBrew] = React.useState(INITIAL_BREW)
   const [batch, setBatch] = React.useState(INITIAL_BATCH)
@@ -50,7 +53,23 @@ function CreateBrew() {
 
   const [success, setSuccess] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
+  const [disabled, setDisabled] = React.useState(true)
   const [error, setError] = React.useState('')
+
+  React.useEffect(() => {
+    var isBrew = false
+    console.log(brew)
+    if (brew.name && brew.type && batch.brewStartDate) {
+      isBrew = true
+    }
+    isBrew ? setDisabled(false) : setDisabled(true);
+  }, [brew])
+
+  React.useEffect(() => {
+    setBrew(prevState => ({ ...prevState, ["batches"]: [batch] }))
+    setBrew(prevState => ({ ...prevState, ["ingredients"]: [ingredient] }))
+  }, [batch, ingredient])
+
 
   function handleBrewChange(event) {
     const { name, value } = event.target
@@ -74,9 +93,6 @@ function CreateBrew() {
       setLoading(true);
       setError('')
 
-      setBrew(prevState => ({ ...prevState, ["batches"]: [batch] }))
-      setBrew(prevState => ({ ...prevState, ["ingredients"]: [ingredient] }))
-
       console.log(brew)
 
       const url = `${baseUrl}/api/brew`;
@@ -91,6 +107,8 @@ function CreateBrew() {
       console.error("ERROR!", error)
     } finally {
       setLoading(false)
+      await new Promise(r => setTimeout(r, 2000));
+      location.reload()
     }
   }
 
@@ -237,6 +255,7 @@ function CreateBrew() {
               icon="pencil alternate"
               content="Submit"
               type="submit"
+              disabled={disabled}
             />
           </Form.Group>
         </Form>

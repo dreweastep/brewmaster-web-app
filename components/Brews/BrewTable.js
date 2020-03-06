@@ -9,7 +9,7 @@ function BrewTable({ brews }) {
                     <TableRow>
                         <TableCell>{brew.name}</TableCell>
                         <TableCell>{brew.type}</TableCell>
-                        <TableCell>{brew.brewStartDate}</TableCell>
+                        <TableCell>{brew.batches[0].brewStartDate}</TableCell>
                         <TableCell>
                             <Button id="deleteBrewButton" style={{ marginRight: "1em" }}>Delete</Button>
                             <Button icon="pencil"></Button>

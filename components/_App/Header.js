@@ -28,7 +28,7 @@ function Header() {
               Brews
             </Menu.Item>
           </Link>
-          <Link href="/create">
+          <Link href="/sensor">
             <Menu.Item header>
               <p id="iconEmoji">🌡️</p>
               Sensor
