@@ -3,6 +3,8 @@ import App from "next/app";
 import Layout from "../components/_App/Layout";
 import Router from "next/router";
 
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
 

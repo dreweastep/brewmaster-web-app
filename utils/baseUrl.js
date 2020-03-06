@@ -1,6 +1,6 @@
 const baseUrl =
     process.env.NODE_ENV === "production" 
         ? 'https://deployment-url.now.sh'
-        : 'http://localhost:3000'
+        : `http://${process.env.IP_ADDR}:3000`
 
 export default baseUrl;

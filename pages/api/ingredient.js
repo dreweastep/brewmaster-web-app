@@ -1,4 +1,4 @@
-import Brew from '../../models/Brew'
+import Ingredient from '../../models/Ingredient'
 import connectDB from '../../utils/connectDb'
 
 connectDB();
@@ -22,41 +22,38 @@ export default async (req, res) => {
 
 async function handleGetRequest(req, res) {
     const { _id } = req.query
-    const brew = await Brew.findOne({ _id })
-    res.status(200).json(brew)
+    const ingredient = await Ingredient.findOne({ _id })
+    res.status(200).json(ingredient)
 }
 
 async function handleDeleteRequest(req, res) {
     const { _id } = req.query
     try {
-        //Delete brew by id
-        await Brew.findOneAndDelete({ _id })
+        //Delete ingredient by id
+        await Ingredient.findOneAndDelete({ _id })
         res.status(204).json({})
     } catch (error) {
         console.error(error)
-        res.status(500).send("Error deleting Brew")
+        res.status(500).send("Error deleting Ingredient")
     }
 }
 
 async function handlePostRequest(req, res) {
-    const { name, type, subtype, batches, ingredients, description, brewingInstructions } = req.body
+    const { name, price, unit, buyLocation, quantity } = req.body
     try {
-        if (!name || !type || !batches) {
-            return res.status(422).send("Brew missing one or more required fields")
+        if (!name) {
+            return res.status(422).send("Ingredient missing one or more required fields")
         }
-        const brew = await new Brew({
+        const ingredient = await new Ingredient({
             name,
-            subtype,
-            type,
-            batches,
-            ingredients,
-            description,
-            brewingInstructions
+            price,
+            unit,
+            buyLocation,
+            quantity
         }).save()
-        console.log(brew)
-        res.status(201).send("Brew Created Successfully")
+        res.status(201).json(ingredient)
     } catch (error) {
         console.error(error)
-        res.status(500).send("Internal server error in creating brew")
+        res.status(500).send("Internal server error in creating ingredient")
     }
 }

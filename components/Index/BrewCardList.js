@@ -14,7 +14,7 @@ function BrewCardList({ brews }) {
     }
     return (
         <Container id="cardListContainer">
-            <Card.Group itemsPerRow='3' stackable centered items={mapBrewsToItems(brews)} />
+            <Card.Group itemsPerRow='4' stackable centered items={mapBrewsToItems(brews)} />
         </Container>
     )
 }

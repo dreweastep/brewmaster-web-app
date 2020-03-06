@@ -1,8 +1,52 @@
 import mongoose from 'mongoose'
-import Batch from './Batch'
-import Ingredient from './Ingredients'
 
-const { String } = mongoose.Schema.Types;
+const { String, Number } = mongoose.Schema.Types;
+
+const IngredientSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: false
+    },
+    price: {
+        type: Number,
+        required: false
+    },
+    unit: {
+        type: String,
+        required: false
+    },
+    buyLocation: {
+        type: String,
+        required: false
+    },
+    quantity: {
+        type: Number,
+        required: false
+    }
+});
+
+const BatchSchema = new mongoose.Schema({
+    brewStartDate: {
+        type: String,
+        required: true
+    },
+    brewEndDate: {
+        type: String,
+        required: false
+    },
+    brewingModifications: {
+        type: String,
+        required: false
+    },
+    ingredientModifications: {
+        type: [IngredientSchema],
+        required: false
+    },
+    tastingNotes: {
+        type: String,
+        required: false
+    }
+});
 
 const BrewSchema = new mongoose.Schema({
     name: {
@@ -18,11 +62,11 @@ const BrewSchema = new mongoose.Schema({
         required: false
     },
     batches: {
-        type: [Batch],
+        type: [BatchSchema],
         required: true
     },
     ingredients: {
-        type: [Ingredient],
+        type: [IngredientSchema],
         required: false
     },
     description: {
@@ -35,4 +79,11 @@ const BrewSchema = new mongoose.Schema({
     }
 });
 
-export default mongoose.models.Brew || mongoose.model("Brew", BrewSchema);
+let Brew
+try {
+    Brew = mongoose.model("Brew")
+} catch (error) {
+    Brew = mongoose.model("Brew", BrewSchema);
+
+}
+export default Brew

@@ -1,4 +1,4 @@
-import Brew from '../../models/Brew'
+import Batch from '../../models/Batch'
 import connectDB from '../../utils/connectDb'
 
 connectDB();
@@ -22,41 +22,38 @@ export default async (req, res) => {
 
 async function handleGetRequest(req, res) {
     const { _id } = req.query
-    const brew = await Brew.findOne({ _id })
-    res.status(200).json(brew)
+    const batch = await Batch.findOne({ _id })
+    res.status(200).json(batch)
 }
 
 async function handleDeleteRequest(req, res) {
     const { _id } = req.query
     try {
-        //Delete brew by id
-        await Brew.findOneAndDelete({ _id })
+        //Delete batch by id
+        await Batch.findOneAndDelete({ _id })
         res.status(204).json({})
     } catch (error) {
         console.error(error)
-        res.status(500).send("Error deleting Brew")
+        res.status(500).send("Error deleting Batch")
     }
 }
 
 async function handlePostRequest(req, res) {
-    const { name, type, subtype, batches, ingredients, description, brewingInstructions } = req.body
+    const { brewStartDate, brewEndDate, brewingModifications, ingredientModifications, tastingNotes } = req.body
     try {
-        if (!name || !type || !batches) {
-            return res.status(422).send("Brew missing one or more required fields")
+        if (!brewStartDate) {
+            return res.status(422).send("Batch missing one or more required fields")
         }
-        const brew = await new Brew({
-            name,
-            subtype,
-            type,
-            batches,
-            ingredients,
-            description,
-            brewingInstructions
+        const batch = await new Batch({
+            brewStartDate,
+            brewEndDate,
+            brewingModifications,
+            ingredientModifications,
+            tastingNotes
         }).save()
-        console.log(brew)
-        res.status(201).send("Brew Created Successfully")
+        res.status(201).json(batch)
     } catch (error) {
         console.error(error)
-        res.status(500).send("Internal server error in creating brew")
+        res.status(500).send("Internal server error in creating batch")
     }
 }

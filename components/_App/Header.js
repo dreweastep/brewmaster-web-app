@@ -19,7 +19,7 @@ function Header() {
           <Link href="/">
             <Menu.Item header>
               <p id="iconEmoji">🍺</p>
-              Brew Master
+              Brew-Master
             </Menu.Item>
           </Link>
           <Link href="/brews">

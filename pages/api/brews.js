@@ -1,3 +1,8 @@
+import Brew from '../../models/Brew'
+import connectDb from '../../utils/connectDb';
+
+connectDb()
+
 export default async (req, res) => {
     try {
         const data = [
