@@ -9,7 +9,7 @@ async function connectDb() {
         }
 
         //Use new database connection
-        const db = await mongoose.connect(process.env.MONGO_SRV, {
+        const db = await mongoose.connect(`${process.env.MONGO_SRV}/brewmaster`, {
             useCreateIndex: true,
             useFindAndModify: false,
             useNewUrlParser: true,

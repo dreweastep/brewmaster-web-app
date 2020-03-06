@@ -10,11 +10,13 @@ RUN npm install
 # Copying source files
 COPY . .
 
-# Get Mongo Srv
+# Get vars
 ARG MONGO_SRV
+ARG IP_ADDR
 
-# Pass Mongo Srv to container
+# Pass vars to container
 ENV MONGO_SRV=$MONGO_SRV
+ENV IP_ADDR=$IP_ADDR
 
 # Building app
 RUN npm run build
