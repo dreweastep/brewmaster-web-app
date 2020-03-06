@@ -1,1 +1,6 @@
-export default `http://${process.env.IP_ADDR}:3000`;
+const baseUrl =
+    process.env.NODE_ENV === "production" 
+        ? `http://${location.hostname}:3000`
+        : `http://${location.hostname}:3000`
+
+export default baseUrl;
