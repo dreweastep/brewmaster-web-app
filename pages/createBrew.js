@@ -4,13 +4,10 @@ import React from 'react'
 import baseUrl from '../utils/baseUrl.js'
 import catchErrors from '../utils/catchErrors'
 
-import { useRouter } from "next/router";
-
 import { Container, Form, Button, Input, TextArea, Select, Message } from 'semantic-ui-react'
 import SemanticDatepicker from 'react-semantic-ui-datepickers';
 
-import Brew from '../models/Brew'
-
+// Set initial object structure of DB objects
 const INITIAL_BREW = {
   name: "",
   type: "",
@@ -35,6 +32,7 @@ const INITIAL_INGREDIENT = {
   quantity: ""
 }
 
+// Options for brew type dropdown
 const TYPE_OPTIONS = [
   { key: 'w', text: 'Wine', value: 'wine' },
   { key: 'b', text: 'Beer', value: 'beer' },
@@ -43,7 +41,6 @@ const TYPE_OPTIONS = [
 ]
 
 function CreateBrew() {
-  const router = useRouter();
 
   const [brew, setBrew] = React.useState(INITIAL_BREW)
   const [batch, setBatch] = React.useState(INITIAL_BATCH)
@@ -56,6 +53,7 @@ function CreateBrew() {
   const [disabled, setDisabled] = React.useState(true)
   const [error, setError] = React.useState('')
 
+  // If all required values are filled out for brew, enable submit button
   React.useEffect(() => {
     var isBrew = false
     console.log(brew)
@@ -65,12 +63,13 @@ function CreateBrew() {
     isBrew ? setDisabled(false) : setDisabled(true);
   }, [brew])
 
+  // Whenever batch and ingredient state is modified, update brew with batch and ingredient state
   React.useEffect(() => {
     setBrew(prevState => ({ ...prevState, ["batches"]: [batch] }))
     setBrew(prevState => ({ ...prevState, ["ingredients"]: [ingredient] }))
   }, [batch, ingredient])
 
-
+  // The following functions update brew state when form fields change
   function handleBrewChange(event) {
     const { name, value } = event.target
     setBrew(prevState => ({ ...prevState, [name]: value }))
@@ -88,24 +87,30 @@ function CreateBrew() {
 
   async function handleSubmit(event) {
     try {
+      //Prevents page refresh
       event.preventDefault();
 
       setLoading(true);
       setError('')
 
-      console.log(brew)
-
       const url = `${baseUrl}/api/brew`;
       const payload = brew;
       const response = await axios.post(url, payload)
 
+      // Reset brew state to empty object
       setBrew(INITIAL_BREW)
+
+      // Send form success
       setSuccess(true)
 
     } catch (error) {
+
+      // Set form error
       catchErrors(error, setError)
       console.error("ERROR!", error)
     } finally {
+
+      // Stop form loading, sleep 2 seconds, then refresh 
       setLoading(false)
       await new Promise(r => setTimeout(r, 2000));
       location.reload()

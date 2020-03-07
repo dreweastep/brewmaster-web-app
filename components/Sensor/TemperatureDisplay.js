@@ -4,7 +4,6 @@ function TemperatureDisplay({ temp }) {
     return (
         <Container id="brewFormContainer">
             <Header content={temp}>
-                
             </Header>
         </Container>
     )

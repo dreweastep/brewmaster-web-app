@@ -5,13 +5,12 @@ import Router, { useRouter } from "next/router";
 import Link from "next/link";
 import NProgress from "nprogress";
 
+// Manipulates progress bar using nextJS Router
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 function Header() {
-  const router = useRouter();
-
   return (
     <div>
       <Menu fluid widths={4} id="menu" inverted>

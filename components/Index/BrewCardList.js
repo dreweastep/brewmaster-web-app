@@ -2,8 +2,11 @@ import { Card, Container } from 'semantic-ui-react'
 
 function BrewCardList({ brews }) {
     function mapBrewsToItems(brews) {
+
+        // Card Props
         return brews.map(brew => ({
             header: brew.name,
+            // Ternary that dictates picture based on berverage type
             image: (brew.type == "beer") ? ("images/beer.jpg") : (brew.type == "wine") ? ("images/wine.jpg") : ("images/cider.jpg"),
             meta: `${brew.type}`,
             color: 'teal',

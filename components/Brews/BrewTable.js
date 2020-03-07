@@ -1,5 +1,4 @@
-import { Table, Container, TableHeader, TableHeaderCell, Icon, Image, TableCell, TableBody, TableRow, Button } from 'semantic-ui-react'
-import { useState, useEffect } from 'react'
+import { Table, Container, TableHeader, TableHeaderCell, TableCell, TableBody, TableRow, Button } from 'semantic-ui-react'
 
 function BrewTable({ brews }) {
     function MapBrewsToRows({ brews }) {
@@ -28,7 +27,6 @@ function BrewTable({ brews }) {
                         <TableHeaderCell>Name</TableHeaderCell>
                         <TableHeaderCell>Type</TableHeaderCell>
                         <TableHeaderCell>Brew Start Date</TableHeaderCell>
-                        {/* <TableHeaderCell>Brew End Date</TableHeaderCell> */}
                         <TableHeaderCell />
                     </TableHeader>
                     <TableBody>

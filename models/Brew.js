@@ -79,11 +79,12 @@ const BrewSchema = new mongoose.Schema({
     }
 });
 
+// If brew model has already been created, export it, else create then export it
 let Brew
 try {
     Brew = mongoose.model("Brew")
 } catch (error) {
-    Brew = mongoose.model("Brew", BrewSchema);
-
+    Brew = mongoose.model("Brew", BrewSchema)
 }
+
 export default Brew

@@ -15,7 +15,6 @@ function Layout() {
         <title>Brew-Master</title>
       </Head>
       <Header />
-      {/* <Container fluid className="landing-image"></Container> */}
     </>
   );
 }

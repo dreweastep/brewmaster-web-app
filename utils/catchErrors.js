@@ -7,10 +7,6 @@ function catchErrors(error, displayError){
         errorMsg = error.response.data;
         console.error("Error response", errorMsg)
 
-        // For Cloudinary image uploads
-        if (error.response.data.error) {
-            errorMsg = error.response.data.error.message;
-        }
     } else if (error.request){
         //The request was made but no response was recieved
         errorMsg = error.request;
