@@ -15,18 +15,19 @@
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.2",
     "cssnano": "^4.1.10",
-    "mongodb": "^3.5.4",
-    "mongoose": "^5.9.3",
+    "lodash": "^4.17.15",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.9.9",
     "next": "latest",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-semantic-ui-datepickers": "^2.3.0",
     "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.4"
+    "autoprefixer": "^9.7.6"
   }
 }

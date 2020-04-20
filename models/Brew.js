@@ -57,7 +57,7 @@ const BrewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    subtype: {
+    subType: {
         type: String,
         required: false
     },

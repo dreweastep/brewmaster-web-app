@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient
 
-var url = "mongodb://192.168.240.30:27017/" //temporarily hardcoded
+var url = process.env.MONGO_SRV //temporarily hardcoded
 
 export default async (req, res) => {
 
