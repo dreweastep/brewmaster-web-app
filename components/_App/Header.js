@@ -23,8 +23,8 @@ function Header({ user }) {
 
   return (
     <div>
-      <Menu fluid widths={7} id="menu" inverted>
-        <Container text>
+      <Menu fluid widths={6} id="menu" inverted>
+        <Container id="textContainer" text>
           <Link href="/">
             <Menu.Item header>
               <p id="iconEmoji">🍺</p>
@@ -34,7 +34,7 @@ function Header({ user }) {
           <Link href="/brews">
             <Menu.Item header>
               <p id="iconEmoji">🍻</p>
-              Brews
+              My Brews
             </Menu.Item>
           </Link>
           <Link href="/sensor">
@@ -83,7 +83,6 @@ function Header({ user }) {
               </>
             )
           }
-
         </Container>
       </Menu>
     </div>

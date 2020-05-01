@@ -23,8 +23,9 @@ body {
   background: var(--menuBg);
 }
 
-#menu:first-child {
+#textContainer {
   align-items: center;
+  max-width: 80% !important;
 }
 
 #cardListContainer {
