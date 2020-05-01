@@ -53,7 +53,7 @@ async function handlePostRequest(req, res) {
 
         } catch (error) {
             console.error(error)
-            res.status(500).send("Internal server error in creating brew")
+            res.status(500).send("Internal server error in editing brew")
         }
 
     } else {

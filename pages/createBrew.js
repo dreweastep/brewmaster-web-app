@@ -32,6 +32,8 @@ const INITIAL_INGREDIENT = {
   quantity: ""
 }
 
+const INITIAL_INGREDIENT_LIST = [INITIAL_INGREDIENT]
+
 // Options for brew type dropdown
 const TYPE_OPTIONS = [
   { key: 'w', text: 'Wine', value: 'wine' },
@@ -42,9 +44,74 @@ const TYPE_OPTIONS = [
 
 function CreateBrew() {
 
+  function IngredientList({ ingredients }) {
+    function MapIngredientsToFormGroup({ ingredients }) {
+        return (
+            // ingredients.map(ingredient => {
+                < Form.Group widths="equal" style={{ padding: "1em", paddingTop: "0em", paddingBottom: "0em" }
+                }>
+                    <Form.Field
+                        label="Name"
+                        control={Input}
+                        placeholder="Name"
+                        width={1}
+                        name="name"
+                        value={ingredient.name}
+                        onChange={handleIngredientChange}
+                    />
+                    <Form.Field
+                        label="Price"
+                        control={Input}
+                        type="number"
+                        placeholder="Price"
+                        width={1}
+                        name="price"
+                        value={ingredient.price}
+                        onChange={handleIngredientChange}
+                    />
+                    <Form.Field
+                        label="Unit"
+                        control={Input}
+                        placeholder="Unit"
+                        width={1}
+                        name="unit"
+                        value={ingredient.unit}
+                        onChange={handleIngredientChange}
+                    />
+                    <Form.Field
+                        label="Purchase Location"
+                        control={Input}
+                        placeholder="Purchase Location"
+                        width={1}
+                        name="buyLocation"
+                        value={ingredient.buyLocation}
+                        onChange={handleIngredientChange}
+                    />
+                    <Form.Field
+                        label="Quantity"
+                        control={Input}
+                        placeholder="Quantity"
+                        width={1}
+                        name="quantity"
+                        value={ingredient.quantity}
+                        onChange={handleIngredientChange}
+                    />
+                </Form.Group >
+            // })
+        )
+    }
+    return (
+        <>
+            <MapIngredientsToFormGroup ingredients={ingredients} />
+        </>
+    )
+}
+
   const [brew, setBrew] = React.useState(INITIAL_BREW)
   const [batch, setBatch] = React.useState(INITIAL_BATCH)
+  // const [ingredient, setIngredient] = React.useState(INITIAL_INGREDIENT_LIST)
   const [ingredient, setIngredient] = React.useState(INITIAL_INGREDIENT)
+
 
   const [currentDate, setNewDate] = React.useState(null)
 
@@ -188,54 +255,7 @@ function CreateBrew() {
           <Form.Group style={{ paddingLeft: "1em", paddingBottom: "1em" }}>
             <h3>Ingredients</h3>
           </Form.Group>
-          <Form.Group widths="equal" style={{ padding: "1em", paddingTop: "0em", paddingBottom: "0em" }}>
-            <Form.Field
-              label="Name"
-              control={Input}
-              placeholder="Name"
-              width={1}
-              name="name"
-              value={ingredient.name}
-              onChange={handleIngredientChange}
-            />
-            <Form.Field
-              label="Price"
-              control={Input}
-              type="number"
-              placeholder="Price"
-              width={1}
-              name="price"
-              value={ingredient.price}
-              onChange={handleIngredientChange}
-            />
-            <Form.Field
-              label="Unit"
-              control={Input}
-              placeholder="Unit"
-              width={1}
-              name="unit"
-              value={ingredient.unit}
-              onChange={handleIngredientChange}
-            />
-            <Form.Field
-              label="Purchase Location"
-              control={Input}
-              placeholder="Purchase Location"
-              width={1}
-              name="buyLocation"
-              value={ingredient.buyLocation}
-              onChange={handleIngredientChange}
-            />
-            <Form.Field
-              label="Quantity"
-              control={Input}
-              placeholder="Quantity"
-              width={1}
-              name="quantity"
-              value={ingredient.quantity}
-              onChange={handleIngredientChange}
-            />
-          </Form.Group>
+          <IngredientList ingredients={ingredient} />
           <Form.Group style={{ paddingLeft: "1em", paddingBottom: "1em" }}>
             <h3>First Batch</h3>
           </Form.Group>

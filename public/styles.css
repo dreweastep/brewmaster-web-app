@@ -27,10 +27,6 @@ body {
   align-items: center;
 }
 
-/* #appbar {
-  padding: 1.5em 2em;
-} */
-
 #cardListContainer {
   margin-top: 3%;
   width: 60%;
@@ -52,6 +48,47 @@ body {
 
 #deleteBrewButton {
   background-color: goldenrod;
+}
+
+#loginForm {
+  width: 60%;
+  margin: auto;
+}
+
+#loginSignupRedirect {
+  width: 60%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+#loginMessage {
+  width: 60%;
+  margin: auto;
+  margin-top: 3em;
+}
+
+#signupForm {
+  width: 60%;
+  margin: auto;
+}
+
+#signupLoginRedirect {
+  width: 60%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+#signupMessage {
+  width: 60%;
+  margin: auto;
+  margin-top: 3em;
+}
+
+#accountRibbon {
+  width: 60%;
+  margin: auto;
+  margin-top: 3em;
+
 }
 
 /* Overrides default styled accordion styles (too much bottom padding) */

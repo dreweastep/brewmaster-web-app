@@ -9,7 +9,7 @@ export default async (req, res) => {
         MongoClient.connect(url, function (err, db) {
             if (err) throw err
             var dbo = db.db("brewmaster");
-            dbo.collection("temperature").findOne({}, function (err, result) {
+            dbo.collection("temperature").findOne({}, {sort:{$natural:-1}}, function (err, result) {
                 if (err) throw err
                 res.status(200).send(result.payload)
                 db.close()
