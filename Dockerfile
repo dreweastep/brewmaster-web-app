@@ -15,6 +15,8 @@ ARG MONGO_SRV
 
 # Pass vars to container
 ENV MONGO_SRV=$MONGO_SRV
+ENV JWT_SECRET=$JWT_SECRET
+
 
 # Building app
 RUN npm run build
