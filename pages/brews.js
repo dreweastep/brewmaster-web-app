@@ -4,11 +4,15 @@ import baseUrl from '../utils/baseUrl.js'
 import axios from 'axios'
 
 
-function Brews({ brews }) {
+function Brews({ brews, user }) {
+
+    const myBrews = brews.filter(function (brew) {
+        return brew.userID == user._id
+      });
 
     return (
         <>
-         <BrewTable brews={brews} />
+         <BrewTable brews={myBrews} />
         </>
     );
 }

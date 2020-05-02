@@ -76,7 +76,20 @@ const BrewSchema = new mongoose.Schema({
     brewingInstructions: {
         type: String,
         required: false
+    },
+    userID: {
+        type: String, 
+        required: true
+    },
+    userName: {
+        type: String, 
+        required: true
+    },
+    userEmail: {
+        type: String, 
+        required: true
     }
+
 });
 
 // If brew model has already been created, export it, else create then export it

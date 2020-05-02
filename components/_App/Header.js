@@ -19,7 +19,6 @@ function Header({ user }) {
     return route === router.pathname;
   }
 
-  console.log(user)
 
   return (
     <div>

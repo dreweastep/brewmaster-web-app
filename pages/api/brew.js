@@ -45,9 +45,9 @@ async function handlePostRequest(req, res) {
         try {
             const filter = { _id }
             const update = { name, type, subType, batches, ingredients, description, brewingInstructions }
-    
+
             const brew = await Brew.findOneAndUpdate(filter, update, { new: true })
-    
+
             console.log(brew)
             res.status(201).send("Brew Updated Successfully")
 
@@ -57,7 +57,7 @@ async function handlePostRequest(req, res) {
         }
 
     } else {
-        const { name, type, subType, batches, ingredients, description, brewingInstructions } = req.body
+        const { name, type, subType, batches, ingredients, description, brewingInstructions, userID, userName, userEmail } = req.body
         try {
             if (!name || !type || !batches) {
                 return res.status(422).send("Brew missing one or more required fields")
@@ -69,9 +69,11 @@ async function handlePostRequest(req, res) {
                 batches,
                 ingredients,
                 description,
-                brewingInstructions
+                brewingInstructions,
+                userID,
+                userName,
+                userEmail
             }).save()
-            console.log(brew)
             res.status(201).json("Brew Created Successfully")
         } catch (error) {
             console.error(error)

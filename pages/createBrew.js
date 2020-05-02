@@ -15,7 +15,8 @@ const INITIAL_BREW = {
   batches: [],
   ingredients: [],
   description: "",
-  brewingInstructions: ""
+  brewingInstructions: "",
+  userID: ""
 }
 const INITIAL_BATCH = {
   brewStartDate: "",
@@ -42,7 +43,7 @@ const TYPE_OPTIONS = [
   { key: 'c', text: 'Kombucha', value: 'kombucha' }
 ]
 
-function CreateBrew() {
+function CreateBrew({user}) {
 
   function IngredientList({ ingredients }) {
     function MapIngredientsToFormGroup({ ingredients }) {
@@ -123,7 +124,6 @@ function CreateBrew() {
   // If all required values are filled out for brew, enable submit button
   React.useEffect(() => {
     var isBrew = false
-    console.log(brew)
     if (brew.name && brew.type && batch.brewStartDate) {
       isBrew = true
     }
@@ -159,6 +159,12 @@ function CreateBrew() {
 
       setLoading(true);
       setError('')
+
+      brew.userID = user._id
+      brew.userName = user.name
+      brew.userEmail = user.email
+
+      console.log(brew)
 
       const url = `${baseUrl}/api/brew`;
       const payload = brew;

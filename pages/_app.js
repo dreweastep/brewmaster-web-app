@@ -1,5 +1,6 @@
 import App from "next/app";
 import Layout from '../components/_App/Layout'
+import Footer from '../components/_App/Footer'
 import { parseCookies, destroyCookie } from 'nookies'
 import { redirectUser } from '../utils/auth'
 import baseUrl from '../utils/baseUrl'
@@ -20,7 +21,7 @@ class MyApp extends App {
 
     if (!token) {
       const isProtectedRoute =
-        ctx.pathname === "/account" || ctx.pathname === "/create";
+        ctx.pathname === "/account" || ctx.pathname === "/create" || ctx.pathname === "/brews" || ctx.pathname === "/createBrew";
       if (isProtectedRoute) {
         redirectUser(ctx, "/login");
       }
