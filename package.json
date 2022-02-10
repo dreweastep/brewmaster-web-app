@@ -22,7 +22,7 @@
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.11",
     "next": "^9.3.6",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "nookies": "^2.2.4",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
